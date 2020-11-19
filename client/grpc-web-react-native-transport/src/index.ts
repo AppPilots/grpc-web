@@ -127,7 +127,7 @@ class XHR implements grpc.Transport {
       xhr.setRequestHeader(key, values.join(", "));
     });
 
-    xhr.withCredentials = Boolean(this.init.withCredentials);
+    xhr.withCredentials = Boolean(this?.init?.withCredentials || false);
 
     xhr.addEventListener("readystatechange", this.onStateChange.bind(this));
     xhr.addEventListener("progress", this.onProgressEvent.bind(this));
